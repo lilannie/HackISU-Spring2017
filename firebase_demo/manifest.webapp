@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "name": "Virtuoso",
+  "launch_path": "/index.html",
+  "description": "TODO:  Description",
+  "developer": {
+    "name": "The team",
+    "url": "TODO:  Site"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "Virtuoso",
+      "description": "TODO:  Description"
+    }
+  }
+}
