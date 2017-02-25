@@ -4,7 +4,35 @@ import {Chat} from 'chat-template';
 import '../../scss/chat.scss';
 
 export default class ChatContainer extends React.Component {
-    static defaultProps = {};
+    static defaultProps = {
+        styles: {
+            chat: {
+                position: 'relative',
+                top: 0,
+                height: '100%',
+                overflow: 'hidden',
+                background: 'rgba(77, 77, 77, 0.9)',
+                width: '350px',
+                padding: '10px 40px 10px 10px'
+            },
+            inputDiv: {
+                height: '40px',
+                width: '100%',
+                backgroundColor: '#1E1E20',
+                borderRadius: '5px'
+            },
+            input: {
+                margin: '8px',
+                width: 'calc(100% - 20px)',
+                height: 'calc(100% - 20px)',
+                borderRadius: '5px',
+                background: '#1E1E20',
+                color: 'white',
+                border: 'none',
+                outline: 'none'
+            },
+        }
+    };
 
     state = {
         historicMessages: [
@@ -37,25 +65,44 @@ export default class ChatContainer extends React.Component {
                 duration: 9999999999999,
                 inbound: true
             }
-        ]
+        ],
+        styles: {
+            chat: {
+                position: 'relative',
+                overflow: 'hidden',
+                height: '400px',
+                background: 'rgba(77, 77, 77, 0.9)',
+                width: '350px',
+                padding: 10
+            },
+            inputDiv: {
+                height: '40px',
+                width: '100%',
+                backgroundColor: '#1E1E20',
+                borderRadius: '5px'
+            },
+            input: {
+                margin: '8px',
+                width: 'calc(100% - 20px)',
+                height: 'calc(100% - 20px)',
+                borderRadius: '5px',
+                background: '#1E1E20',
+                color: 'white',
+                border: 'none'
+            },
+        }
     };
 
     constructor(props) {
         super(props);
-
-        this.changeValue = this.changeValue.bind(this);
-    }
-
-    changeValue(e) {
-        e.preventDefault();
-        console.log(e.target.value);
     }
 
     render() {
         return (
-            <div className="chat-container">
+            <div className="chat-container container-fluid">
                 <Chat historicMessages={this.state.historicMessages}
-                      messages={this.state.messages} turnOffLoop />
+                      messages={this.state.messages} turnOffLoop
+                      styles={this.props.styles}/>
             </div>
         );
     }

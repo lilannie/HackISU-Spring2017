@@ -59,6 +59,10 @@
   font-weight: bold;
 }
 
+.no-outline {
+  outline: none;
+}
+
 html {
   min-height: 100%; /* make sure it is at least as tall as the viewport */
   position: relative;
@@ -79,9 +83,11 @@ body {
 }
 
 .t-h4 {
-  @include h4(black);
+  @include h4(white);
   text-align: center;
   margin: 5px;
+  font-size: 24px;
+  overflow: hidden;
 }
 
 .t-h5 {
@@ -91,7 +97,7 @@ body {
 }
 
 .t-logo {
-  margin-top: 20px;
+  margin-top: 22px;
   width: 40%;
 }
 
@@ -137,21 +143,40 @@ body {
   }
 }
 
+.sound-button-active {
+  @extend .no-outline;
+  background-color: $t-coral;
+  box-shadow: 1.5px 1.5px 6px #AEB2B3,
+  -1.5px -1.5px 6px #AEB2B3;
+}
+
 .sound-button-container {
   margin: 10px 5px;
   padding: 0px;
 
   .sound-button {
+    @extend .no-outline;
     text-align: center;
     padding: 5px;
     border-radius: 10px;
     width: 100%;
-    background-color: white;
+    background-color: $t-grey-dark-transparent;
     color: $sound-button-color;
+
     i {
       color: $sound-button-color;
     }
   }
+
+  .sound-button:active,  .sound-button:focus {
+    @extend .sound-button-active;
+  }
+
+  .sound-button:hover {
+    @extend .sound-button-active;
+    background: $t-coral-dark;
+  }
+
 }
 
 .sound-group-container {

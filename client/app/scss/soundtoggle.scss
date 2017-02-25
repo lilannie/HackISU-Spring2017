@@ -335,9 +335,9 @@
   }
 
   .switch input:checked~.switch-led-green {
-    -webkit-box-shadow: 0 0 3em rgb(0,161,75);
-    -moz-box-shadow: 0 0 3em rgb(0,161,75);
-    box-shadow: 0 0 3em rgb(0,161,75);
+    -webkit-box-shadow: 0 0 3em $t-green-light;
+    -moz-box-shadow: 0 0 3em $t-green-light;
+    box-shadow: 0 0 3em $t-green-light;
   }
 
   .switch input:checked~.switch-led-green .switch-led-glow {

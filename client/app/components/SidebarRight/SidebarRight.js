@@ -2,7 +2,6 @@ import React from 'react';
 import Slider from './Slider';
 import ChatContainer from './ChatContainer';
 
-
 import '../../scss/main.scss';
 
 export default class SidebarRight extends React.Component {
