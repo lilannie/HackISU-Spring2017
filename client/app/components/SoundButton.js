@@ -5,6 +5,7 @@ import '../scss/main.scss';
 
 export default class SoundButton extends React.Component {
     defaultProps = {
+        id: 0,
         soundName: 'Jazz Bass'
     };
 
@@ -15,7 +16,7 @@ export default class SoundButton extends React.Component {
             x: 0, y: 0
         },
         zIndex: 0
-    };
+    };git
 
     constructor(props) {
         super(props);
@@ -44,6 +45,7 @@ export default class SoundButton extends React.Component {
 
     handleDrag(e, ui) {
         const {x, y} = this.state.deltaPosition;
+        //e.dataTransfer.setData("text", e.target.id);
         this.setState({
             deltaPosition: {
                 x: ui.deltaX,
@@ -57,8 +59,9 @@ export default class SoundButton extends React.Component {
         const {deltaPosition} = this.state;
 
         return (
-        <Draggable
-                   onDrag={this.handleDrag} {...dragHandlers}>
+        <Draggable id={'sound'+this.props.id}
+                   onDrag={this.handleDrag}
+                   {...dragHandlers}>
             <div className="handle sound-button-container col-md-2"
                  style={{ zIndex: this.state.zIndex}}>
                 <button className="sound-button btn">
