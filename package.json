@@ -1,0 +1,19 @@
+{
+  "name": "jam-time",
+  "version": "1.0.0",
+  "description": "Collaborative music editor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilannie/HackISU-Spring2017.git"
+  },
+  "author": "Annie Steenson, Ryan Gallus, Sam Jackson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lilannie/HackISU-Spring2017/issues"
+  },
+  "homepage": "https://github.com/lilannie/HackISU-Spring2017#readme"
+}
