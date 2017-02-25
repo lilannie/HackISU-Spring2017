@@ -2,7 +2,7 @@ import React from 'react';
 
 import SoundGroup from './SoundGroup';
 
-import '../scss/main.scss';
+import '../../scss/main.scss';
 
 export default class MainContent extends React.Component {
     render() {

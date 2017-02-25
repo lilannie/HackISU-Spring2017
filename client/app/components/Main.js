@@ -1,9 +1,9 @@
 import React from 'react';
 
-import SidebarLeft from './SidebarLeft';
-import SidebarRight from './SidebarRight';
-import MainContent from './MainContent';
-import Footer from './Footer';
+import SidebarLeft from './SidebarLeft/SidebarLeft';
+import SidebarRight from './SidebarRight/SidebarRight';
+import MainContent from './Main/MainContent';
+import Footer from './Footer/Footer';
 
 import '../scss/main.scss';
 

@@ -160,6 +160,10 @@ body {
 
   .sound-group {
     background-color: $sound-group-color;
+
+    .sound-content {
+      padding: 0px 20px;
+    }
   }
 }
 
@@ -179,4 +183,3 @@ body {
   border-radius: 10px;
   background-color: $timeline-slot-color;
 }
-

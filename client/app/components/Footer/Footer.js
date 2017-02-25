@@ -2,7 +2,7 @@ import React from 'react';
 
 import TimelineSlot from './TimelineSlot';
 
-import '../scss/main.scss';
+import '../../scss/main.scss';
 
 export default class Footer extends React.Component {
     static defaultProps = {};

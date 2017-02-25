@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../scss/main.scss';
+import '../../scss/main.scss';
 
 export default class SoundButton extends React.Component {
     defaultProps = {

@@ -3,7 +3,7 @@ import React from 'react';
 import SoundButton from './SoundButton';
 import SoundToggle from './SoundToggle';
 
-import '../scss/main.scss';
+import '../../scss/main.scss';
 
 export default class SoundGroup extends React.Component {
     defaultProps = {
@@ -73,26 +73,27 @@ export default class SoundGroup extends React.Component {
     }
 
     getButtons() {
-        return this.state.sounds.map(function (sound){
-           return (
-                <SoundButton
-                    key={'sound-'+sound.id}
-                    soundId={sound.id}
-                    soundName={sound.name}/>
-           );
-        });
-    }
-
-    getToggles() {
-        return this.state.sounds.map(function (sound){
+        return this.state.sounds.map(function (sound) {
             return (
-                <SoundToggle
-                    key={'sound-'+sound.id}
+                <SoundButton
+                    key={'sound-' + sound.id}
                     soundId={sound.id}
                     soundName={sound.name}/>
             );
         });
     }
+
+    getToggles() {
+        return this.state.sounds.map(function (sound) {
+            return (
+                <SoundToggle
+                    key={'sound-' + sound.id}
+                    soundId={sound.id}
+                    soundName={sound.name}/>
+            );
+        });
+    }
+
     render() {
         return (
             <div className="sound-group-container row">
@@ -100,9 +101,14 @@ export default class SoundGroup extends React.Component {
                     <h3 className="t-h3">
                         {this.state.groupTitle}
                     </h3>
-                    {this.getToggles()}
-                    <div className="col-md-1" style={{width: '100%'}}></div>
-                    {this.getButtons()}
+                    <div className="row">
+                        <div className="sound-content">
+
+                                {this.getToggles()}
+                                {this.getButtons()}
+
+                        </div>
+                    </div>
                 </div>
             </div>
         );

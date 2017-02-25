@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../scss/soundtoggle.scss';
+import '../../scss/soundtoggle.scss';
 
 export default class SoundToggle extends React.Component {
     defaultProps = {
