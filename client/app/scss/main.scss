@@ -1,0 +1,150 @@
+@import 'colors.scss';
+
+$background-color: $t-teal-light;
+$main-color: $t-blue-dark;
+$header-color: $t-blue-dark;
+$body-color: $t-blue-dark;
+$sound-group-color: $t-blue-grey-transparent;
+$sound-button-color: $t-blue-dark;
+$footer-color: $t-grey-transparent;
+$timeline-slot-color: $t-grey;
+
+@mixin stretch-height() {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: scroll;
+  z-index: -1; /* Remove this line if it's not going to be a background! */
+}
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin horizontal-align-container($position: relative) {
+  text-align: center;
+}
+
+@mixin horizontal-align($position: relative) {
+  display: inline-block;
+}
+
+@mixin floating-footer() {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+@mixin h1($color: white) {
+  font-weight: bold;
+  margin: 15px;
+  font-family: $t-font;
+  color: $color;
+  letter-spacing: 3px;
+  font-size: 42px;
+}
+
+@mixin h3($color: white) {
+  margin: 15px;
+  font-family: $t-font;
+  color: $color;
+  font-size: 32px;
+}
+
+html {
+  min-height: 100%; /* make sure it is at least as tall as the viewport */
+  position: relative;
+}
+
+body {
+  height: 100%; /* force the BODY element to match the height of the HTML element */
+}
+
+.t-h1 {
+  @include h1(white);
+  margin-top: 30px;
+}
+
+.t-h3 {
+  @include h3(white);
+  text-align: left;
+}
+
+.t-logo {
+  margin-top: 20px;
+  width: 40%;
+}
+
+.main-container {
+  @include stretch-height();
+  @include horizontal-align-container();
+  background-color: $background-color;
+
+  #main {
+    @include horizontal-align();
+    min-height: 800px;
+    background-color: $main-color;
+
+    #header {
+      text-align: center;
+      background-color: $header-color;
+    }
+
+    #body {
+      text-align: center;
+      background-color: $body-color;
+    }
+  }
+}
+
+.sound-button-container {
+  margin-bottom: 10px;
+
+  .sound-button {
+    text-align: center;
+    padding: 15px 15px;
+    border-radius: 10px;
+    width: 100%;
+    background-color: white;
+    color: $sound-button-color;
+    i {
+      color: $sound-button-color;
+    }
+  }
+}
+
+.sound-group-container {
+  z-index: 1;
+  margin: 25px 0px;
+  min-height: 300px;
+
+  .sound-group {
+    padding: 10px;
+    background-color: $sound-group-color;
+  }
+}
+
+.main-footer {
+  z-index: 0;
+  @include floating-footer();
+  background-color: $footer-color;
+  color: white;
+  min-height: 100px;
+}
+
+
+.timeline-slot {
+  min-height: 80px;
+  margin: 10px;
+  border: dashed black 2px;
+  border-radius: 10px;
+  background-color: $timeline-slot-color;
+}
+
+
