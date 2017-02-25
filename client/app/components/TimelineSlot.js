@@ -16,9 +16,8 @@ export default class TimelineSlot extends React.Component {
 
     drop(ev) {
         ev.preventDefault();
-        //var data = ev.dataTransfer.getData("text");
-        //ev.target.appendChild(document.getElementById(data));
-        console.log("dropped target");
+        ev.target.appendChild(document.getElementById("sound-0"));
+        console.log("Dropped target");
     }
 
     render() {

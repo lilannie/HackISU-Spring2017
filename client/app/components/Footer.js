@@ -5,6 +5,10 @@ import TimelineSlot from './TimelineSlot';
 import '../scss/main.scss';
 
 export default class Footer extends React.Component {
+    static defaultProps = {
+
+    };
+
     render() {
         return (
             <footer className="main-footer">

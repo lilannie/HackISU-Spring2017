@@ -5,72 +5,76 @@ import '../scss/main.scss';
 
 export default class SoundButton extends React.Component {
     defaultProps = {
-        id: 0,
+        soundId: 0,
         soundName: 'Jazz Bass'
     };
 
     state = {
         soundName: 'Jazz Bass',
         activeDrags: 0,
-        deltaPosition: {
+        zIndex: 0,
+        controlledPosition: {
             x: 0, y: 0
-        },
-        zIndex: 0
-    };git
+        }
+    };
 
     constructor(props) {
         super(props);
+
         this.onStart = this.onStart.bind(this);
         this.onStop = this.onStop.bind(this);
         this.handleDrag = this.handleDrag.bind(this);
     }
 
-    onStart() {
-        this.setState(
-            {
-                activeDrags: ++this.state.activeDrags,
-                zIndex: 2
-            }
-        );
-    };
-
-    onStop() {
-        this.setState(
-            {
-                activeDrags: --this.state.activeDrags,
-                zIndex: 0
-            }
-        );
-    };
-
-    handleDrag(e, ui) {
-        const {x, y} = this.state.deltaPosition;
-        //e.dataTransfer.setData("text", e.target.id);
+    onStart(e) {
         this.setState({
-            deltaPosition: {
-                x: ui.deltaX,
-                y: ui.deltaY,
-            }
+            activeDrags: ++this.state.activeDrags,
+            zIndex: 2
         });
     };
 
+    onStop(e) {
+        this.setState({
+            activeDrags: --this.state.activeDrags,
+            zIndex: 0,
+            // controlledPosition: {
+            //     x: e.clientX,
+            //     y: e.clientY
+            // }
+        });
+    };
+
+    handleDrag(e, pos) {
+        const {x, y} = this.state.controlledPosition;
+        // this.setState({
+        //     controlledPosition: {
+        //         x: x,
+        //         y: y
+        //     }
+        // });
+    };
+
+
     render() {
         const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
-        const {deltaPosition} = this.state;
+        const {controlledPosition} = this.state;
 
         return (
-        <Draggable id={'sound'+this.props.id}
-                   onDrag={this.handleDrag}
-                   {...dragHandlers}>
-            <div className="handle sound-button-container col-md-2"
-                 style={{ zIndex: this.state.zIndex}}>
-                <button className="sound-button btn">
-                    <i className="fa fa-music fa-2x"></i>
-                    <h4>{this.state.soundName}</h4>
-                </button>
-                <div>x: {deltaPosition.x.toFixed(0)}, y: {deltaPosition.y.toFixed(0)}</div>
-            </div>
-        </Draggable>
+            <Draggable id={'sound-' + this.props.soundId}
+                       onDrag={this.handleDrag}
+                       position={controlledPosition}
+                       {...dragHandlers}>
+                <div className="handle sound-button-container col-md-2"
+                     style={{zIndex: this.state.zIndex}}>
+                    <button className="sound-button btn">
+                        <i className="fa fa-music fa-2x"></i>
+                        <h4>{this.state.soundName}</h4>
+                    </button>
+                    <div>
+                        x: {controlledPosition.x.toFixed(0)}, y: {controlledPosition.y.toFixed(0)}
+                    </div>
+                </div>
+            </Draggable>
         );
     }
 }
