@@ -1,6 +1,7 @@
 import React from 'react';
 
 import SoundButton from './SoundButton';
+import SoundToggle from './SoundToggle';
 
 import '../scss/main.scss';
 
@@ -76,6 +77,7 @@ export default class SoundGroup extends React.Component {
     constructor(props) {
         super(props);
         this.getButtons = this.getButtons.bind(this);
+        this.getToggles = this.getToggles.bind(this);
     }
 
     getButtons() {
@@ -83,10 +85,20 @@ export default class SoundGroup extends React.Component {
            return (
                 <SoundButton
                     key={'sound-'+sound.id}
-                    ref={'sound-'+sound.id}
                     soundId={sound.id}
                     soundName={sound.name}/>
            );
+        });
+    }
+
+    getToggles() {
+        return this.state.sounds.map(function (sound){
+            return (
+                <SoundToggle
+                    key={'sound-'+sound.id}
+                    soundId={sound.id}
+                    soundName={sound.name}/>
+            );
         });
     }
     render() {
@@ -96,6 +108,7 @@ export default class SoundGroup extends React.Component {
                     <h3 className="t-h3">
                         {this.state.groupTitle}
                     </h3>
+                    {this.getToggles()}
                     {this.getButtons()}
                 </div>
             </div>

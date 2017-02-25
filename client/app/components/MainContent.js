@@ -10,7 +10,7 @@ export default class MainContent extends React.Component {
             <div id="main" className="col-md-8">
                 <div id="header" className="row">
                     <div className="container-fluid">
-                        <img className="t-logo" src="images/app/logo-2.png" />
+                        <img className="t-logo" src="images/app/logo-3.png" />
                     </div>
                 </div>
                 <div id="body" className="row">

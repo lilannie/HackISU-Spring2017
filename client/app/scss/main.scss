@@ -2,9 +2,9 @@
 
 $background-color: $t-teal-light;
 $main-color: $t-blue-dark;
-$header-color: $t-blue-dark;
-$body-color: $t-blue-dark;
-$sound-group-color: $t-blue-grey-transparent;
+$header-color: $t-black;
+$body-color: $t-black;
+$sound-group-color: $t-black;
 $sound-button-color: $t-blue-dark;
 $footer-color: $t-grey-transparent;
 $timeline-slot-color: $t-grey;
@@ -57,6 +57,17 @@ $timeline-slot-color: $t-grey;
   font-size: 32px;
 }
 
+@mixin h4($color: white) {
+  font-family: $t-font;
+  color: $color;
+}
+
+@mixin h5($color: white) {
+  font-family: $t-font;
+  color: $color;
+  font-weight: bold;
+}
+
 html {
   min-height: 100%; /* make sure it is at least as tall as the viewport */
   position: relative;
@@ -74,6 +85,18 @@ body {
 .t-h3 {
   @include h3(white);
   text-align: left;
+}
+
+.t-h4 {
+  @include h4($t-blue-dark);
+  text-align: center;
+  margin: 5px;
+}
+
+.t-h5 {
+  @include h5(white);
+  text-align: center;
+  margin: 5px;
 }
 
 .t-logo {
@@ -104,11 +127,12 @@ body {
 }
 
 .sound-button-container {
-  margin-bottom: 10px;
+  margin: 10px 5px;
+  padding: 0px;
 
   .sound-button {
     text-align: center;
-    padding: 15px 15px;
+    padding: 5px;
     border-radius: 10px;
     width: 100%;
     background-color: white;
@@ -122,7 +146,6 @@ body {
 .sound-group-container {
   z-index: 1;
   margin: 25px 0px;
-  min-height: 300px;
 
   .sound-group {
     padding: 10px;
@@ -131,7 +154,7 @@ body {
 }
 
 .main-footer {
-  z-index: 0;
+  z-index: 20;
   @include floating-footer();
   background-color: $footer-color;
   color: white;
@@ -146,5 +169,4 @@ body {
   border-radius: 10px;
   background-color: $timeline-slot-color;
 }
-
 
