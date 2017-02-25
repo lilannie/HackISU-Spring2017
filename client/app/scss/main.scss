@@ -107,7 +107,6 @@ body {
     width: 100%;
     background-color: white;
     color: $sound-button-color;
-
     i {
       color: $sound-button-color;
     }
@@ -115,6 +114,7 @@ body {
 }
 
 .sound-group-container {
+  z-index: 1;
   margin: 25px 0px;
   min-height: 300px;
 
@@ -125,6 +125,7 @@ body {
 }
 
 .main-footer {
+  z-index: 1;
   @include floating-footer();
   background-color: $footer-color;
   color: white;

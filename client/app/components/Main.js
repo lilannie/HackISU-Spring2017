@@ -11,12 +11,14 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className="main-container">
+
                 <div className="row">
                     <SidebarLeft />
                     <MainContent />
                     <SidebarRight />
                 </div>
                 <Footer />
+
             </div>
         );
     }
