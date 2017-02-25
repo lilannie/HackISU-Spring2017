@@ -1,4 +1,5 @@
 $t-black: #1E1E20;
+$t-black-transparent: rgba(30, 30, 32, 0.5);
 
 $t-blue-light: #99b3e6;
 $t-blue-grey: #527DA8;
@@ -6,15 +7,23 @@ $t-blue-grey-transparent: rgba(82, 125, 168, 0.8);
 $t-blue: #24478f;
 $t-blue-dark: #0a1429;
 $t-blue-dark-transparent: rgba(10, 20, 41, 0.7);
-
+$t-coral-light: #ffb3b3;
+$t-coral: #ff4d4d;
+$t-coral-dark: #e60000;
 $t-green-light-off: rgba(0,161,75,0.5);
 $t-green-light-on:rgb(0,161,75);
-
 $t-grey: #333333;
 $t-grey-transparent: rgba(64, 64, 64, 0.9);
-
 $t-teal: #009999;
 $t-teal-dark: #00334d;
 $t-teal-light: rgba(0, 51, 77, 0.3);
-
 $t-font: 'Roboto', sans-serif;
+
+$background-color: $t-teal-light;
+$main-color: $t-blue-dark;
+$header-color: $t-black;
+$body-color: $t-black;
+$sound-group-color: $t-black;
+$sound-button-color: $t-blue-dark;
+$footer-color: $t-grey-transparent;
+$timeline-slot-color: $t-grey;

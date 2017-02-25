@@ -33,10 +33,6 @@ export default class SoundGroup extends React.Component {
                 id: 5,
                 name: 'Chirp'
             },
-            {
-                id: 6,
-                name: 'Party Beat'
-            }
         ]
     };
 
@@ -67,10 +63,6 @@ export default class SoundGroup extends React.Component {
                 id: 5,
                 name: 'Chirp'
             },
-            {
-                id: 6,
-                name: 'Party Beat'
-            }
         ]
     };
 
@@ -109,6 +101,7 @@ export default class SoundGroup extends React.Component {
                         {this.state.groupTitle}
                     </h3>
                     {this.getToggles()}
+                    <div className="col-md-1" style={{width: '100%'}}></div>
                     {this.getButtons()}
                 </div>
             </div>

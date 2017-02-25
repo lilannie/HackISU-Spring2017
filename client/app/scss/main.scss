@@ -1,14 +1,5 @@
 @import 'colors.scss';
 
-$background-color: $t-teal-light;
-$main-color: $t-blue-dark;
-$header-color: $t-black;
-$body-color: $t-black;
-$sound-group-color: $t-black;
-$sound-button-color: $t-blue-dark;
-$footer-color: $t-grey-transparent;
-$timeline-slot-color: $t-grey;
-
 @mixin stretch-height() {
   position: absolute;
   top: 0;
@@ -88,7 +79,7 @@ body {
 }
 
 .t-h4 {
-  @include h4($t-blue-dark);
+  @include h4(black);
   text-align: center;
   margin: 5px;
 }
@@ -102,6 +93,26 @@ body {
 .t-logo {
   margin-top: 20px;
   width: 40%;
+}
+
+.t-banner {
+  position: relative;
+  top: 0;
+  background: $t-coral;
+}
+.t-toolbar {
+  position: relative;
+
+
+  button {
+    background: $t-black-transparent;
+    border: none;
+  }
+
+  .t-h5 {
+    margin: 7px 0px;
+    color: white;
+  }
 }
 
 .main-container {
@@ -145,10 +156,9 @@ body {
 
 .sound-group-container {
   z-index: 1;
-  margin: 25px 0px;
+  margin: 5px 0px;
 
   .sound-group {
-    padding: 10px;
     background-color: $sound-group-color;
   }
 }
