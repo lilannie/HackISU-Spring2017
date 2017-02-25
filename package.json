@@ -6,7 +6,7 @@
   "scripts": {
     "build": "./node_modules/.bin/webpack --config webpack.config.js",
     "build:hot": "./node_modules/.bin/webpack --config webpack.config.js -w",
-    "server": "node server"
+    "start:dev-server": "node react-dev-server"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,6 @@
     "react-router": "^3.0.0",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
-    "webpack": "^1.12.13",
+    "webpack": "^1.12.13"
   }
 }
