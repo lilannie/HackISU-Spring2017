@@ -3,6 +3,7 @@ import React from 'react';
 import SidebarLeft from './SidebarLeft';
 import SidebarRight from './SidebarRight';
 import MainContent from './MainContent';
+import Footer from './Footer';
 
 import '../scss/main.scss';
 
@@ -15,11 +16,7 @@ export default class Main extends React.Component {
                     <MainContent />
                     <SidebarRight />
                 </div>
-                <footer className="main-footer">
-                    <div className="container">
-                        <h1>CONTENT</h1>
-                    </div>
-                </footer>
+                <Footer />
             </div>
         );
     }

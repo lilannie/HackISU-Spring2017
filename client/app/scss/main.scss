@@ -6,6 +6,8 @@ $header-color: $t-blue-dark;
 $body-color: $t-blue-dark;
 $sound-group-color: $t-blue-grey-transparent;
 $sound-button-color: $t-blue-dark;
+$footer-color: $t-grey-transparent;
+$timeline-slot-color: $t-grey;
 
 @mixin stretch-height() {
   position: absolute;
@@ -31,6 +33,12 @@ $sound-button-color: $t-blue-dark;
 
 @mixin horizontal-align($position: relative) {
   display: inline-block;
+}
+
+@mixin floating-footer() {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
 @mixin h1($color: white) {
@@ -117,10 +125,19 @@ body {
 }
 
 .main-footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  background-color: #f5f5f5;
+  @include floating-footer();
+  background-color: $footer-color;
+  color: white;
+  min-height: 100px;
+}
+
+
+.timeline-slot {
+  min-height: 80px;
+  margin: 10px;
+  border: dashed black 2px;
+  border-radius: 10px;
+  background-color: $timeline-slot-color;
 }
 
 
