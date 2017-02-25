@@ -1,6 +1,6 @@
 @import 'colors.scss';
 
-$background-color: $t-blue-grey;
+$background-color: $t-teal-light;
 $main-color: $t-blue-dark;
 $header-color: $t-blue-dark;
 $body-color: $t-blue-dark;
@@ -68,11 +68,17 @@ body {
 
 .t-h1 {
   @include h1(white);
+  margin-top: 30px;
 }
 
 .t-h3 {
   @include h3(white);
   text-align: left;
+}
+
+.t-logo {
+  margin-top: 20px;
+  width: 40%;
 }
 
 .main-container {
@@ -98,7 +104,7 @@ body {
 }
 
 .sound-button-container {
-  margin: 10px 0px;
+  margin-bottom: 10px;
 
   .sound-button {
     text-align: center;
