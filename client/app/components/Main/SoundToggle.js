@@ -6,7 +6,7 @@ export default class SoundToggle extends React.Component {
     defaultProps = {
         soundId: 0,
         soundName: 'Jazz Bass',
-        url: 'clip.mp4',
+        url: 'clip.mp4'
     };
 
     state = {
