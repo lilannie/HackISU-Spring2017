@@ -54,21 +54,33 @@ export default class SoundGroup extends React.Component {
                 id: 1,
                 name: 'Kick Drum'
             },
-        ]
+        ],
     };
 
     state = {
-        soundsOn: []
+        activeSounds: []
     };
 
     constructor(props) {
         super(props);
+
+        this.toggleOn = this.toggleOn.bind(this);
+        this.toggleOff = this.toggleOff.bind(this);
         this.getButtons = this.getButtons.bind(this);
         this.getToggles = this.getToggles.bind(this);
     }
 
+    toggleOn(id) {
+
+    }
+
+    toggleOff(id) {
+
+    }
     getButtons() {
         let sounds = this.props.sounds;
+        let toggleOn = this.toggleOn;
+        let toggleOff = this.toggleOff;
         return this.props.group.sounds.map(function (id) {
             let sound = sounds[id];
 
@@ -78,6 +90,8 @@ export default class SoundGroup extends React.Component {
                     soundId={sound.id}
                     soundName={sound.name}
                     file={sound.file}
+                    toggleOn={toggleOn}
+                    toggleOff={toggleOff}
                 />
             );
         });
@@ -85,7 +99,8 @@ export default class SoundGroup extends React.Component {
 
     getToggles() {
         let sounds = this.props.sounds;
-
+        let toggleOn = this.toggleOn;
+        let toggleOff = this.toggleOff;
         return this.props.group.sounds.map(function (item) {
             let sound = sounds[item];
             if (sound != null && sound != undefined) {
@@ -95,6 +110,8 @@ export default class SoundGroup extends React.Component {
                         soundId={sound.id}
                         soundName={sound.name}
                         file={sound.file}
+                        toggleOn={toggleOn}
+                        toggleOff={toggleOff}
                     />
                 );
             }
