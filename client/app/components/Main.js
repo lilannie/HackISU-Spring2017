@@ -12,6 +12,7 @@ export default class Main extends React.Component {
     constructor(props) {
         super(props);
         this.loopCache = {};
+        this.instrumentCache = {};
         this.state = {
             rootRef: undefined,
             roomId: 0,
@@ -89,12 +90,49 @@ export default class Main extends React.Component {
 
         this.addToLoopCache = this.addToLoopCache.bind(this);
         this.fetchLoops = this.fetchLoops.bind(this);
+
+        this.addToInstrumentCache = this.addToInstrumentCache.bind(this);
+        this.fetchInstruments = this.fetchInstruments.bind(this);
     }
 
     addToLoopCache(jsonStr) {
         var loop = JSON.parse(jsonStr);
         this.loopCache[loop.name] = loop;
         console.log("cache " + this.loopCache);
+    }
+
+    addToInstrumentCache(jsonStr) {
+        var instrument = JSON.parse(jsonStr);
+        this.instrumentCache[instrument.name] = instrument;
+        console.log("cached instrument:  " + instrument.name);
+    }
+
+    fetchInstruments() {
+
+        let addToInstrumentCache = this.addToInstrumentCache;
+
+
+        firebase.storage().ref().child("instruments/index.json").getDownloadURL().then(function(url){
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", url, false );
+
+            xmlHttp.send();
+            console.log("fetched inst. index.  got" + xmlHttp.responseText);
+            var instrumentEntries = JSON.parse(xmlHttp.responseText);
+            for (var entryIndex in instrumentEntries) {
+                var filepath = instrumentEntries[entryIndex].filepath;
+
+                var instrumentRef = firebase.storage().ref().child(filepath);
+                instrumentRef.getDownloadURL().then(function(loopUrl) {
+                    var xmlHttp = new XMLHttpRequest();
+                    xmlHttp.open( "GET", loopUrl, false );
+                    xmlHttp.send();
+                    console.log("gonna catche this\n" + xmlHttp.responseText);
+                    addToInstrumentCache(xmlHttp.responseText);
+                });
+            }
+
+        });
     }
 
     fetchLoops() {
@@ -135,7 +173,8 @@ export default class Main extends React.Component {
     componentDidMount() {
         const root = firebase.database().ref();
         const rootRef = firebase.database().ref();
-        // this.fetchLoops();
+        this.fetchLoops();
+        this.fetchInstruments();
 
         root.once('value',
             snap => {
