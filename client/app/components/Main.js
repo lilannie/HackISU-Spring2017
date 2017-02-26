@@ -17,13 +17,13 @@ export default class Main extends React.Component {
     }
 
     componentDidMount() {
-        const rootRef = firebase.database().ref().child('');
-        const number = rootRef.child('number');
-        number.on('value', snap => {
-            this.setState({
-                number: snap.val()
-            });
-        });
+        const rootRef = firebase.database().ref();
+        const rooms = rootRef.child('rooms');
+        // number.on('value', snap => {
+        //     this.setState({
+        //         number: snap.val()
+        //     });
+        // });
     }
 
     render() {
