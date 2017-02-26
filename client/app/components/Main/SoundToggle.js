@@ -19,19 +19,8 @@ export default class SoundToggle extends React.Component {
         this.toggle = this.toggle.bind(this);
     }
 
-<<<<<<< HEAD
-// DO WORK HERE
-// event - e
-    toggle(e) {
-      e.preventDefault();
-      var target = e.target.val();
-      
-      // Turning off
-        if (this.props.onFlag) {
-=======
     toggle() {
         if (this.state.isSoundOn) {
->>>>>>> 14985b407970098f826eadfb345a159b059a7a72
             console.log(this.props.soundName+' is off');
             this.props.toggleOff(this.props.soundId);
             this.setState({isSoundOn: false});
