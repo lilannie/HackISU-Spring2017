@@ -17,7 +17,7 @@ export default class Main extends React.Component {
     }
 
     componentDidMount() {
-        const rootRef = firebase.database().ref().child('react');
+        const rootRef = firebase.database().ref().child('');
         const number = rootRef.child('number');
         number.on('value', snap => {
             this.setState({
