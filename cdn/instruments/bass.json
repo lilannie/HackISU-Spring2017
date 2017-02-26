@@ -1,0 +1,26 @@
+{
+  "name": "bass_instrument",
+  "filename": "bass.json",
+  "measures": 2,
+  "data": {
+    "source" : "sine",
+    "volume" : 1.2,
+    "pitch"   : "D#2",
+    "globalReverb" : true,
+    "env" : {
+      "attack" : 0.02,
+      "decay" : 0.02,
+      "sustain" : 1,
+      "hold" : 1,
+      "release" : 0.1
+    },
+    "tuna"   : {
+      "Chorus" : {
+        "intensity": 0.3,
+        "rate": 1.6,
+        "stereoPhase": 0,
+        "bypass": 0
+      }
+    }
+  }
+}

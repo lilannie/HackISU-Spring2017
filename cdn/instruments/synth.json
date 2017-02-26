@@ -1,0 +1,48 @@
+{
+  "name": "synth_instrument",
+  "filename": "synth.json",
+  "measures": 2,
+  "data": {
+    "source" : "square",
+    "volume" : 1,
+    "env" : {
+      "attack" : 0.04,
+      "decay" : 0.04,
+      "sustain" : 1.0,
+      "hold" : 0.04,
+      "release" : 0.3
+    },
+    "filter" : {
+      "type" : "lowpass",
+      "frequency" : 1200,
+      "q" : 8.5,
+      "env" : {
+        "attack" : 0.2,
+        "frequency" : 600
+      }
+    },
+    "tuna"   : {
+      "Chorus" : {
+        "intensity": 0.3,
+        "rate": 1.6,
+        "stereoPhase": 0,
+        "bypass": 0
+      },
+      "Overdrive" : {
+        "outputGain": 0.5,
+        "drive": 0.9,
+        "curveAmount": 1,
+        "algorithmIndex": 0,
+        "bypass": 0
+      },
+      "Delay" : {
+        "feedback": 0.3,
+        "delayTime": 150,
+        "wetLevel": 0.25,
+        "dryLevel": 0.75,
+        "cutoff": 2000,
+        "ypass": 0
+      }
+    }
+  }
+}
