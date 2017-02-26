@@ -1,0 +1,9 @@
+{
+  "name": "bass_loop_00",
+  "filename": "bass00.json",
+  "measures": 2,
+  "data": [
+    {"pitch":"D#3", "wait":"0", "hold":1},
+    {"pitch":"D#3", "wait":"5", "hold":1}
+  ]
+}
