@@ -133,7 +133,7 @@ export default class Main extends React.Component {
     componentDidMount() {
         const root = firebase.database().ref();
         const rootRef = firebase.database().ref();
-        this.fetchLoops();
+        // this.fetchLoops();
 
         root.once('value', snap => {
             this.setState({
