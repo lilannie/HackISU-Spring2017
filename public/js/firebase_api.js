@@ -1,53 +1,53 @@
-// /**
-//  * Copyright 2015 Google Inc. All Rights Reserved.
-//  *
-//  * Licensed under the Apache License, Version 2.0 (the "License");
-//  * you may not use this file except in compliance with the License.
-//  * You may obtain a copy of the License at
-//  *
-//  *      http://www.apache.org/licenses/LICENSE-2.0
-//  *
-//  * Unless required by applicable law or agreed to in writing, software
-//  * distributed under the License is distributed on an "AS IS" BASIS,
-//  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//  * See the License for the specific language governing permissions and
-//  * limitations under the License.
-//  */
-// 'use strict';
-//
-// // Initializes VirtuosoApi.
-// var VirtuosoApi = function () {
-//     // this.checkSetup();
-//
-//     // Optional:  Get shortcuts to DOM Elements.
-//     //   eg:    this.messageForm = document.getElementById('message-form');
-//
-//     // Optional:  Add api handlers
-//     //   eg:    this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
-// };
-//
-// // Sets up shortcuts to Firebase features and initiate firebase auth.
-// VirtuosoApi.initFirebase = function() {
-//     // Auth api
-//     this.auth = firebase.auth();
-//
-//     // Fetches and stores state of the user's song / editor.
-//     this.database = firebase.database();
-//
-//     // Retrieves loops and instrument data
-//     this.storage = firebase.storage();
-//
-//     // Initiates Firebase auth and listen to auth state changes.
-//     this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
-// };
-//
-// VirtuosoApi.fetchAllLoops = function() {
-//
-//     var loopData = [];
-//     var loopsToFetch = [];
-//
-//     var bassIndexPath = "loops/bass/index.json";
-//     var synthIndexPath = "loops/synth/index.json";
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+'use strict';
+
+// Initializes VirtuosoApi.
+var VirtuosoApi = function () {
+    // this.checkSetup();
+
+    // Optional:  Get shortcuts to DOM Elements.
+    //   eg:    this.messageForm = document.getElementById('message-form');
+
+    // Optional:  Add api handlers
+    //   eg:    this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
+};
+
+// Sets up shortcuts to Firebase features and initiate firebase auth.
+VirtuosoApi.initFirebase = function() {
+    // Auth api
+    this.auth = firebase.auth();
+
+    // Fetches and stores state of the user's song / editor.
+    this.database = firebase.database();
+
+    // Retrieves loops and instrument data
+    this.storage = firebase.storage();
+
+    // Initiates Firebase auth and listen to auth state changes.
+    this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
+};
+
+VirtuosoApi.fetchAllLoops = function() {
+
+    var loopData = [];
+    var loopsToFetch = [];
+
+    var bassIndexPath = "loops/bass/index.json";
+    var synthIndexPath = "loops/synth/index.json";
     var beatIndexPath = "loops/beat/index.json";
 
     var bassIndexRef = this.storage.ref(bassIndexPath);
