@@ -13,6 +13,7 @@ const config = {
 };
 const app = firebase.initializeApp(config);
 const database = app.database();
+const storage = app.storage();
 console.log("Initialized Firebase App");
 
 ReactDOM.render(

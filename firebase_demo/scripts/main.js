@@ -15,7 +15,7 @@
  */
 'use strict';
 
-// Initializes FriendlyChat.
+// Initializes VirtuosoApi.
 function FriendlyChat() {
   this.checkSetup();
 

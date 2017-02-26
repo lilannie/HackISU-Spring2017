@@ -6,5 +6,13 @@
   {
     "name": "beat_loop01",
     "filepath": "loops/beat/beat01.json"
+  },
+  {
+    "name": "beat_loop02",
+    "filepath": "loops/beat/beat02.json"
+  },
+  {
+    "name": "beat_loop03",
+    "filepath": "loops/beat/beat03.json"
   }
 ]

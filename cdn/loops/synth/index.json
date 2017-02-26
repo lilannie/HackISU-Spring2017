@@ -2,5 +2,17 @@
   {
     "name": "synth_loop00",
     "filepath": "loops/synth/synth00.json"
+  },
+  {
+    "name": "synth_loop01",
+    "filepath": "loops/synth/synth01.json"
+  },
+  {
+    "name": "synth_loop02",
+    "filepath": "loops/synth/synth02.json"
+  },
+  {
+    "name": "synth_loop03",
+    "filepath": "loops/synth/synth03.json"
   }
 ]

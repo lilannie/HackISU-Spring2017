@@ -1,0 +1,23 @@
+{
+  "name": "synth_loop_01",
+  "filename": "synth01.json",
+  "measures": 2,
+  "data": [
+    {"pitch":"G1", "beat":"0.0", "hold":0.4},
+    {"pitch":"G1", "beat":"0.75", "hold":0.1},
+    {"pitch":"G1", "beat":"1.0", "hold":0.1},
+    {"pitch":"D2", "beat":"2.0", "hold":0.05},
+    {"pitch":"D2", "beat":"2.1", "hold":0.05},
+    {"pitch":"D2", "beat":"2.2", "hold":0.05},
+    {"pitch":"D2", "beat":"2.5", "hold":0.1},
+    {"pitch":"C2", "beat":"3.0", "hold":0.4},
+    {"pitch":"G1", "beat":"4.0", "hold":0.4},
+    {"pitch":"G1", "beat":"4.75", "hold":0.1},
+    {"pitch":"G1", "beat":"5.0", "hold":0.1},
+    {"pitch":"D2", "beat":"6.0", "hold":0.05},
+    {"pitch":"D2", "beat":"6.1", "hold":0.05},
+    {"pitch":"D2", "beat":"6.2", "hold":0.05},
+    {"pitch":"C2", "beat":"6.5", "hold":0.1},
+    {"pitch":"C2", "beat":"7.0", "hold":0.4}
+  ]
+}
