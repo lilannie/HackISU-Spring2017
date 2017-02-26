@@ -3,7 +3,7 @@
   "filename": "bass00.json",
   "measures": 2,
   "data": [
-    {"pitch":"D#3", "wait":"0", "hold":1},
-    {"pitch":"D#3", "wait":"5", "hold":1}
+    {"pitch":"D#3", "wait":"0", "hold":2.0},
+    {"pitch":"D#3", "wait":"4", "hold":2.0}
   ]
 }

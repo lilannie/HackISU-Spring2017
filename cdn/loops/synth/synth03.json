@@ -1,0 +1,9 @@
+{
+  "name": "synth_loop_03",
+  "filename": "synth03.json",
+  "measures": 2,
+  "data": [
+    {"pitch":"F1", "beat":"0.0", "hold":1.8},
+    {"pitch":"A1", "beat":"4.0", "hold":1.8}
+  ]
+}

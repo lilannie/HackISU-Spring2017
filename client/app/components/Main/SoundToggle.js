@@ -5,15 +5,30 @@ import '../../scss/soundtoggle.scss';
 export default class SoundToggle extends React.Component {
     defaultProps = {
         soundId: 0,
-        soundName: 'Jazz Bass'
-    };
-
-    state = {
         soundName: 'Jazz Bass',
+        url: 'clip.mp4',
+        onFlag: false,
+        toggleOn: function () {},
+        toggleOff: function () {}
     };
 
     constructor(props) {
         super(props);
+
+        this.toggle = this.toggle.bind(this);
+    }
+
+    toggle() {
+        if (this.props.onFlag) {
+            console.log(this.props.soundName+' is off');
+            this.props.toggleOff(this.props.soundId);
+            this.props.onFlag = false;
+        }
+        else {
+            console.log(this.props.soundName+' is on');
+            this.props.toggleOn(this.props.soundId);
+            this.props.onFlag = true;
+        }
     }
 
     render() {
@@ -22,7 +37,8 @@ export default class SoundToggle extends React.Component {
                 <div className="switch">
                     <div className="switch-border1">
                         <div className="switch-border2">
-                            <input id={'switch-'+this.props.soundId} type="checkbox"/>
+                            <input id={'switch-'+this.props.soundId} type="checkbox"
+                                onChange={this.toggle} />
                             <label htmlFor={'switch-'+this.props.soundId}></label>
                             <div className="switch-top"></div>
                             <div className="switch-shadow"></div>

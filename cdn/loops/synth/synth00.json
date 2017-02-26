@@ -3,7 +3,7 @@
   "filename": "synth00.json",
   "measures": 2,
   "data": [
-    {"pitch":"D#2", "beat":"0", "hold":0.2},
+    {"pitch":"D#2", "beat":"0.0", "hold":0.2},
     {"pitch":"D#2", "beat":"1.0", "hold":0.2},
     {"pitch":"F2", "beat":"1.5", "hold":0.2},
     {"pitch":"F2", "beat":"1.75", "hold":0.2},
