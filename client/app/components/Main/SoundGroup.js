@@ -55,6 +55,8 @@ export default class SoundGroup extends React.Component {
                 name: 'Kick Drum'
             },
         ],
+        waitingSounds: [],
+        activeSounds: [],
     };
 
     state = {

@@ -92,6 +92,8 @@ export default class MainContent extends React.Component {
                 key={'sound-group-'+group.id}
                 group={group}
                 sounds={sounds}
+                waitingSounds={this.props.waitingSounds}
+                activeSounds={this.props.activeSounds}
             />);
         });
     }

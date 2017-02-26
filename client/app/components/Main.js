@@ -15,74 +15,76 @@ export default class Main extends React.Component {
         this.state = {
             rootRef: undefined,
             roomId: 0,
+            activeSounds: [0],
+            waitingSounds: [1],
             data: {
-                "messages" : [ {
-                    "authorId" : 0,
-                    "id" : 0,
-                    "order" : 0,
-                    "roomId" : 0,
-                    "text" : "Hi There!",
-                    "timeSent" : "2017-02-20-10:00:00"
+                "messages": [{
+                    "authorId": 0,
+                    "id": 0,
+                    "order": 0,
+                    "roomId": 0,
+                    "text": "Hi There!",
+                    "timeSent": "2017-02-20-10:00:00"
                 }, {
-                    "id" : 1,
-                    "order" : 0,
-                    "roomId" : 1,
-                    "text" : "Whats up"
-                } ],
-                "phrases" : [ {
-                    "id" : 0,
-                    "name" : "Quick Rifts"
+                    "id": 1,
+                    "order": 0,
+                    "roomId": 1,
+                    "text": "Whats up"
+                }],
+                "phrases": [{
+                    "id": 0,
+                    "name": "Quick Rifts"
                 }, {
-                    "id" : 1,
-                    "name" : "Slow Rifts"
+                    "id": 1,
+                    "name": "Slow Rifts"
                 }, {
-                    "id" : 2,
-                    "name" : "Fast Tempo"
+                    "id": 2,
+                    "name": "Fast Tempo"
                 }, {
-                    "id" : 3,
-                    "name" : "Slow Tempo"
-                } ],
-                "rooms" : [ {
-                    "activePhrase" : 1,
-                    "id" : 0,
-                    "messages" : [ 0 ],
-                    "name" : "Annie's Room",
-                    "songId" : 0,
-                    "url" : "hi.com"
+                    "id": 3,
+                    "name": "Slow Tempo"
+                }],
+                "rooms": [{
+                    "activePhrase": 1,
+                    "id": 0,
+                    "messages": [0],
+                    "name": "Annie's Room",
+                    "songId": 0,
+                    "url": "hi.com"
                 }, {
-                    "activePhrase" : 2,
-                    "id" : 1,
-                    "name" : "Annie's 2nd Room",
-                    "songId" : 1,
-                    "url" : "other.com"
-                } ],
-                "songs" : [ {
-                    "id" : 0,
-                    "name" : "Rock and Roll",
-                    "phrases" : [ 0, 1 ]
+                    "activePhrase": 2,
+                    "id": 1,
+                    "name": "Annie's 2nd Room",
+                    "songId": 1,
+                    "url": "other.com"
+                }],
+                "songs": [{
+                    "id": 0,
+                    "name": "Rock and Roll",
+                    "phrases": [0, 1]
                 }, {
-                    "id" : 1,
-                    "name" : "Smooth Blues",
-                    "phrases" : [ 0, 1 ]
-                } ],
-                "sound-groups" : [ {
-                    "id" : 0,
-                    "name" : "Drums",
-                    "sounds" : [ 0, 1 ]
+                    "id": 1,
+                    "name": "Smooth Blues",
+                    "phrases": [0, 1]
+                }],
+                "sound-groups": [{
+                    "id": 0,
+                    "name": "Drums",
+                    "sounds": [0, 1]
                 }, {
-                    "id" : 1,
-                    "name" : "Synths",
-                    "sounds" : [ 0, 1 ]
-                } ],
-                "sounds" : [ {
-                    "file" : "file.mp4",
-                    "id" : 0,
-                    "name" : "Trumpet"
+                    "id": 1,
+                    "name": "Synths",
+                    "sounds": [0, 1]
+                }],
+                "sounds": [{
+                    "file": "file.mp4",
+                    "id": 0,
+                    "name": "Trumpet"
                 }, {
-                    "file" : "file.mp4",
-                    "id" : 1,
-                    "name" : "Bass"
-                } ]
+                    "file": "file.mp4",
+                    "id": 1,
+                    "name": "Bass"
+                }]
             }
 
         }
@@ -106,9 +108,9 @@ export default class Main extends React.Component {
         let addToLoopCache = this.addToLoopCache;
 
         for (var ref in refs) {
-            refs[ref].getDownloadURL().then(function(url){
+            refs[ref].getDownloadURL().then(function (url) {
                 var xmlHttp = new XMLHttpRequest();
-                xmlHttp.open( "GET", url, false );
+                xmlHttp.open("GET", url, false);
 
                 xmlHttp.send();
                 console.log("fetched inst. index.  got" + xmlHttp.responseText);
@@ -118,9 +120,9 @@ export default class Main extends React.Component {
                     console.log("looking for cdn path:  " + filepath);
 
                     var loopRef = firebase.storage().ref().child(filepath);
-                    loopRef.getDownloadURL().then(function(loopUrl) {
+                    loopRef.getDownloadURL().then(function (loopUrl) {
                         var xmlHttp = new XMLHttpRequest();
-                        xmlHttp.open( "GET", loopUrl, false );
+                        xmlHttp.open("GET", loopUrl, false);
                         xmlHttp.send();
                         console.log("gonna catche this\n" + xmlHttp.responseText);
                         addToLoopCache(xmlHttp.responseText);
@@ -139,10 +141,10 @@ export default class Main extends React.Component {
 
         root.once('value',
             snap => {
-            this.setState({
-                data: snap.val()
+                this.setState({
+                    data: snap.val()
+                });
             });
-        });
 
         root.on('value', snap => {
             this.setState({
@@ -159,7 +161,10 @@ export default class Main extends React.Component {
             <div className="main-container">
                 <div className="row">
                     <SidebarLeft />
-                    <MainContent data={this.props.data} />
+                    <MainContent data={this.props.data}
+                                 waitingSounds={this.props.waitingSounds}
+                                 activeSounds={this.props.activeSounds}
+                    />
                     <SidebarRight />
                 </div>
                 <Footer />
