@@ -1,0 +1,15 @@
+{
+  "name": "bass_loop_01",
+  "filename": "bass01.json",
+  "measures": 2,
+  "data": [
+    {"pitch":"E2", "wait":"0.0", "hold":1.5},
+    {"pitch":"E2", "wait":"2.0", "hold":0.2},
+    {"pitch":"E2", "wait":"2.5", "hold":0.2},
+    {"pitch":"E2", "wait":"3.0", "hold":0.5},
+    {"pitch":"E2", "wait":"4.0", "hold":1.5},
+    {"pitch":"E2", "wait":"6.0", "hold":0.2},
+    {"pitch":"E2", "wait":"6.5", "hold":0.2},
+    {"pitch":"E2", "wait":"7.0", "hold":0.5}
+  ]
+}

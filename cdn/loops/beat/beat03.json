@@ -1,0 +1,13 @@
+{
+  "name": "beat_loop_03",
+  "filename": "beat03.json",
+  "measures": 2,
+  "data": [
+    {"wait":"0.0"},
+    {"wait":"1.5"},
+    {"wait":"2.0"},
+    {"wait":"4.0"},
+    {"wait":"5.5"},
+    {"wait":"6.0"}
+  ]
+}

@@ -1,6 +1,10 @@
 [
   {
     "name": "bass_loop00",
-    "filepath": "loops/bass/synth00.json"
+    "filepath": "loops/bass/bass00.json"
+  },
+  {
+    "name": "bass_loop01",
+    "filepath": "loops/bass/bass01.json"
   }
 ]

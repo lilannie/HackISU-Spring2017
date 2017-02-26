@@ -1,0 +1,15 @@
+{
+  "name": "synth_loop_02",
+  "filename": "synth02.json",
+  "measures": 2,
+  "data": [
+    {"pitch":"A2", "beat":"0.0", "hold":0.5},
+    {"pitch":"C3", "beat":"1.5", "hold":0.2},
+    {"pitch":"D3", "beat":"2.5", "hold":0.1},
+    {"pitch":"D3", "beat":"3.0", "hold":0.05},
+    {"pitch":"A2", "beat":"4.0", "hold":0.5},
+    {"pitch":"D#3", "beat":"5.5", "hold":0.2},
+    {"pitch":"D3", "beat":"6.5", "hold":0.1},
+    {"pitch":"D3", "beat":"7.0", "hold":0.05}
+  ]
+}
