@@ -7,9 +7,10 @@ export default class SoundToggle extends React.Component {
         soundId: 0,
         soundName: 'Jazz Bass',
         url: 'clip.mp4',
-        onFlag: false,
-        toggleOn: function () {},
-        toggleOff: function () {}
+    };
+
+    state = {
+        isSoundOn: true
     };
 
     constructor(props) {
@@ -19,15 +20,15 @@ export default class SoundToggle extends React.Component {
     }
 
     toggle() {
-        if (this.props.onFlag) {
+        if (this.state.isSoundOn) {
             console.log(this.props.soundName+' is off');
             this.props.toggleOff(this.props.soundId);
-            this.props.onFlag = false;
+            this.setState({isSoundOn: false});
         }
         else {
             console.log(this.props.soundName+' is on');
             this.props.toggleOn(this.props.soundId);
-            this.props.onFlag = true;
+            this.setState({isSoundOn: true});
         }
     }
 

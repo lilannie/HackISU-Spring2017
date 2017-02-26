@@ -63,7 +63,7 @@ export default class Main extends React.Component {
                 }, {
                     "id" : 1,
                     "name" : "Smooth Blues",
-                    "phrases" : [ null, null, 2, 3 ]
+                    "phrases" : [ 0, 1 ]
                 } ],
                 "sound-groups" : [ {
                     "id" : 0,
@@ -72,7 +72,7 @@ export default class Main extends React.Component {
                 }, {
                     "id" : 1,
                     "name" : "Synths",
-                    "sounds" : [ null, null, 2, 3 ]
+                    "sounds" : [ 0, 1 ]
                 } ],
                 "sounds" : [ {
                     "file" : "file.mp4",
@@ -135,7 +135,8 @@ export default class Main extends React.Component {
         const rootRef = firebase.database().ref();
         // this.fetchLoops();
 
-        root.once('value', snap => {
+        root.once('value',
+            snap => {
             this.setState({
                 data: snap.val()
             });
