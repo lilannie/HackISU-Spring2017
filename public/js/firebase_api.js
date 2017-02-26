@@ -16,7 +16,7 @@
 'use strict';
 
 // Initializes VirtuosoApi.
-var VirtuosoApi = function () {
+function VirtuosoApi() {
     // this.checkSetup();
 
     // Optional:  Get shortcuts to DOM Elements.
@@ -24,10 +24,12 @@ var VirtuosoApi = function () {
 
     // Optional:  Add api handlers
     //   eg:    this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
-};
+
+    this.initFirebase();
+}
 
 // Sets up shortcuts to Firebase features and initiate firebase auth.
-VirtuosoApi.initFirebase = function() {
+VirtuosoApi.prototype.initFirebase = function() {
     // Auth api
     this.auth = firebase.auth();
 
@@ -39,12 +41,14 @@ VirtuosoApi.initFirebase = function() {
 
     // Initiates Firebase auth and listen to auth state changes.
     this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
+    console.log("Successfully connected to Firebase");
 };
 
-VirtuosoApi.fetchAllLoops = function() {
+VirtuosoApi.prototype.fetchAllLoops = function() {
 
     var loopData = [];
     var loopsToFetch = [];
+
 
     var bassIndexPath = "loops/bass/index.json";
     var synthIndexPath = "loops/synth/index.json";
@@ -102,7 +106,7 @@ VirtuosoApi.fetchAllLoops = function() {
 
 // Saves a new message containing an image URI in Firebase.
 // This first saves the image in Firebase storage.
-VirtuosoApi.saveImageMessage = function(event) {
+VirtuosoApi.prototype.saveImageMessage = function(event) {
     var file = event.target.files[0];
 
     // Clear the selection in the file picker input.
@@ -143,20 +147,20 @@ VirtuosoApi.saveImageMessage = function(event) {
 };
 
 // Signs-in Friendly Chat.
-VirtuosoApi.signIn = function() {
+VirtuosoApi.prototype.signIn = function() {
     // Sign in Firebase using popup auth and Google as the identity provider.
     var provider = new firebase.auth.GoogleAuthProvider();
     this.auth.signInWithPopup(provider);
 };
 
 // Signs-out of Friendly Chat.
-VirtuosoApi.signOut = function() {
+VirtuosoApi.prototype.signOut = function() {
     // Sign out of Firebase.
     this.auth.signOut();
 };
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
-VirtuosoApi.onAuthStateChanged = function(user) {
+VirtuosoApi.prototype.onAuthStateChanged = function(user) {
     if (user) {
         // User is signed in
         // TODO: tell components to update as necessary for user login event
@@ -168,7 +172,7 @@ VirtuosoApi.onAuthStateChanged = function(user) {
 };
 
 // Returns true if user is signed-in. Otherwise false and displays a message.
-VirtuosoApi.checkSignedInWithMessage = function() {
+VirtuosoApi.prototype.checkSignedInWithMessage = function() {
     // Return true if the user is signed in Firebase
     if (this.auth.currentUser) {
         return true;
@@ -218,6 +222,6 @@ VirtuosoApi.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 // };
 
 window.onload = function() {
-    VirtuosoApi.initFirebase();
+    window.VirtuosoApi = new VirtuosoApi();
+    console.log("here");
 };
-

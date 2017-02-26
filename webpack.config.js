@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var paths = {
-    entry: path.join(__dirname, 'client', 'app', 'router.js'),
+    entry: path.join(__dirname, 'client', 'app', 'index.js'),
     build: path.join(__dirname, 'public'),
     output: path.join(__dirname, 'public', 'bundle.js'),
     components: path.join(__dirname, 'client', 'app', 'components')
