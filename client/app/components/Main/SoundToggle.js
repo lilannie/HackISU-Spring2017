@@ -3,7 +3,7 @@ import React from 'react';
 import '../../scss/soundtoggle.scss';
 
 export default class SoundToggle extends React.Component {
-    defaultProps = {
+    defaultProps = {        //this.props
         soundId: 0,
         soundName: 'Jazz Bass',
         url: 'clip.mp4',
@@ -18,12 +18,19 @@ export default class SoundToggle extends React.Component {
         this.toggle = this.toggle.bind(this);
     }
 
-    toggle() {
+// DO WORK HERE
+// event - e
+    toggle(e) {
+      e.preventDefault();
+      var target = e.target.val();
+      
+      // Turning off
         if (this.props.onFlag) {
             console.log(this.props.soundName+' is off');
             this.props.toggleOff(this.props.soundId);
             this.props.onFlag = false;
         }
+        // Turning on
         else {
             console.log(this.props.soundName+' is on');
             this.props.toggleOn(this.props.soundId);
@@ -61,4 +68,3 @@ export default class SoundToggle extends React.Component {
         );
     }
 }
-
