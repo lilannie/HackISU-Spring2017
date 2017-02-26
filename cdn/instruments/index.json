@@ -1,0 +1,26 @@
+[
+  {
+    "name": "bass_instrument",
+    "filepath": "instruments/bass.json"
+  },
+  {
+    "name": "hi_hat_closed_instrument",
+    "filepath": "instruments/hiHatClosed.json"
+  },
+  {
+    "name": "hi_hat_open_instrument",
+    "filepath": "instruments/hiHatOpen.json"
+  },
+  {
+    "name": "piano_instrument",
+    "filepath": "instruments/piano.json"
+  },
+  {
+    "name": "snare_instrument",
+    "filepath": "instruments/snare.json"
+  },
+  {
+    "name": "synth_instrument",
+    "filepath": "instruments/synth.json"
+  }
+]
