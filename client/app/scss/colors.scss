@@ -29,3 +29,66 @@ $sound-group-color: $t-black;
 $sound-button-color: white;
 $footer-color: $t-grey-transparent;
 $timeline-slot-color: $t-grey;
+
+@mixin stretch-height() {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: scroll;
+  z-index: -1; /* Remove this line if it's not going to be a background! */
+}
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin horizontal-align-container($position: relative) {
+  text-align: center;
+}
+
+@mixin horizontal-align($position: relative) {
+  display: inline-block;
+}
+
+@mixin floating-footer() {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+@mixin h1($color: white) {
+  font-weight: bold;
+  margin: 15px;
+  font-family: $t-font;
+  color: $color;
+  letter-spacing: 3px;
+  font-size: 42px;
+}
+
+@mixin h3($color: white) {
+  margin: 15px;
+  font-family: $t-font;
+  color: $color;
+  font-size: 32px;
+}
+
+@mixin h4($color: white) {
+  font-family: $t-font;
+  color: $color;
+}
+
+@mixin h5($color: white) {
+  font-family: $t-font;
+  color: $color;
+  font-weight: bold;
+}
+
+.no-outline {
+  outline: none;
+}

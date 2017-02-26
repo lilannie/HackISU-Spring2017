@@ -1,0 +1,28 @@
+@import 'colors.scss';
+
+.timeline-slot {
+  min-height: 80px;
+  margin: 10px;
+  border: dashed black 2px;
+  border-radius: 10px;
+  background-color: $timeline-slot-color;
+  padding: 0;
+
+  .add-slot {
+    @include stretch-height();
+    background-color: $t-coral;
+    width: 100%;
+    border-radius: 10px;
+    padding: 0;
+    z-index: 0;
+
+    i {
+      @include vertical-align();
+      color: white;
+    }
+  }
+
+  .add-slot:hover, .add-slot:active {
+    background-color: $t-coral-dark;
+  }
+}
