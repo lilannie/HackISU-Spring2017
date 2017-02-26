@@ -1,0 +1,14 @@
+[
+  {
+    "category": "synth",
+    "index": "/synth/index.json"
+  },
+  {
+    "category": "beat",
+    "index": "/beat/index.json"
+  },
+  {
+    "category": "bass",
+    "index": "/bass/index.json"
+  }
+]
