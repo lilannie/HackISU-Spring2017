@@ -1,7 +1,7 @@
 service firebase.storage {
   match /b/virtuoso-12e7f.appspot.com/o {
     match /{allPaths=**} {
-      allow read;
+      allow read, write;
     }
   }
 }
