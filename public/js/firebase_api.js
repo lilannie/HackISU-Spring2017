@@ -1,56 +1,53 @@
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-'use strict';
-
-// Initializes VirtuosoApi.
-function VirtuosoApi() {
-    // this.checkSetup();
-
-    // Optional:  Get shortcuts to DOM Elements.
-    //   eg:    this.messageForm = document.getElementById('message-form');
-
-    // Optional:  Add api handlers
-    //   eg:    this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
-
-    this.initFirebase();
-}
-
-// Sets up shortcuts to Firebase features and initiate firebase auth.
-VirtuosoApi.prototype.initFirebase = function() {
-    // Auth api
-    this.auth = firebase.auth();
-
-    // Fetches and stores state of the user's song / editor.
-    this.database = firebase.database();
-
-    // Retrieves loops and instrument data
-    this.storage = firebase.storage();
-
-    // Initiates Firebase auth and listen to auth state changes.
-    this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
-};
-
-VirtuosoApi.prototype.fetchAllLoops = function() {
-
-    var loopData = [];
-    var loopsToFetch = [];
-
-
-    var bassIndexPath = "loops/bass/index.json";
-    var synthIndexPath = "loops/synth/index.json";
+// /**
+//  * Copyright 2015 Google Inc. All Rights Reserved.
+//  *
+//  * Licensed under the Apache License, Version 2.0 (the "License");
+//  * you may not use this file except in compliance with the License.
+//  * You may obtain a copy of the License at
+//  *
+//  *      http://www.apache.org/licenses/LICENSE-2.0
+//  *
+//  * Unless required by applicable law or agreed to in writing, software
+//  * distributed under the License is distributed on an "AS IS" BASIS,
+//  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  * See the License for the specific language governing permissions and
+//  * limitations under the License.
+//  */
+// 'use strict';
+//
+// // Initializes VirtuosoApi.
+// var VirtuosoApi = function () {
+//     // this.checkSetup();
+//
+//     // Optional:  Get shortcuts to DOM Elements.
+//     //   eg:    this.messageForm = document.getElementById('message-form');
+//
+//     // Optional:  Add api handlers
+//     //   eg:    this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
+// };
+//
+// // Sets up shortcuts to Firebase features and initiate firebase auth.
+// VirtuosoApi.initFirebase = function() {
+//     // Auth api
+//     this.auth = firebase.auth();
+//
+//     // Fetches and stores state of the user's song / editor.
+//     this.database = firebase.database();
+//
+//     // Retrieves loops and instrument data
+//     this.storage = firebase.storage();
+//
+//     // Initiates Firebase auth and listen to auth state changes.
+//     this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
+// };
+//
+// VirtuosoApi.fetchAllLoops = function() {
+//
+//     var loopData = [];
+//     var loopsToFetch = [];
+//
+//     var bassIndexPath = "loops/bass/index.json";
+//     var synthIndexPath = "loops/synth/index.json";
     var beatIndexPath = "loops/beat/index.json";
 
     var bassIndexRef = this.storage.ref(bassIndexPath);
@@ -105,7 +102,7 @@ VirtuosoApi.prototype.fetchAllLoops = function() {
 
 // Saves a new message containing an image URI in Firebase.
 // This first saves the image in Firebase storage.
-VirtuosoApi.prototype.saveImageMessage = function(event) {
+VirtuosoApi.saveImageMessage = function(event) {
     var file = event.target.files[0];
 
     // Clear the selection in the file picker input.
@@ -146,20 +143,20 @@ VirtuosoApi.prototype.saveImageMessage = function(event) {
 };
 
 // Signs-in Friendly Chat.
-VirtuosoApi.prototype.signIn = function() {
+VirtuosoApi.signIn = function() {
     // Sign in Firebase using popup auth and Google as the identity provider.
     var provider = new firebase.auth.GoogleAuthProvider();
     this.auth.signInWithPopup(provider);
 };
 
 // Signs-out of Friendly Chat.
-VirtuosoApi.prototype.signOut = function() {
+VirtuosoApi.signOut = function() {
     // Sign out of Firebase.
     this.auth.signOut();
 };
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
-VirtuosoApi.prototype.onAuthStateChanged = function(user) {
+VirtuosoApi.onAuthStateChanged = function(user) {
     if (user) {
         // User is signed in
         // TODO: tell components to update as necessary for user login event
@@ -171,7 +168,7 @@ VirtuosoApi.prototype.onAuthStateChanged = function(user) {
 };
 
 // Returns true if user is signed-in. Otherwise false and displays a message.
-VirtuosoApi.prototype.checkSignedInWithMessage = function() {
+VirtuosoApi.checkSignedInWithMessage = function() {
     // Return true if the user is signed in Firebase
     if (this.auth.currentUser) {
         return true;
@@ -221,5 +218,6 @@ VirtuosoApi.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 // };
 
 window.onload = function() {
-    window.VirtuosoApi = new VirtuosoApi();
+    VirtuosoApi.initFirebase();
 };
+

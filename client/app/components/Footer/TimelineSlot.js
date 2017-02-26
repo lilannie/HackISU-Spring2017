@@ -49,13 +49,13 @@ export default class TimelineSlot extends React.Component {
     }
 
     render() {
-        if (isEmpty) {
+        if (this.props.isEmpty) {
             return (
                 <div className="timeline-slot col-md-1">
                 </div>
             );
         }
-        if (isAdd) {
+        if (this.props.isAdd) {
             return (
                 <div className="timeline-slot col-md-1">
                     <AddSlot/>
@@ -64,7 +64,7 @@ export default class TimelineSlot extends React.Component {
         }
         return (
             <div className="timeline-slot col-md-1">
-                <SegmentSlot segement={segment}/>
+                <SegmentSlot segement={this.props.segment}/>
             </div>
         );
     }
