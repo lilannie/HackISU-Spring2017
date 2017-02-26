@@ -1,10 +1,6 @@
 [
   {
-    "name": "synth_loop0",
+    "name": "synth_loop00",
     "filepath": "loops/synth/synth00.json"
-  },
-  {
-    "name": "synth_loop1",
-    "filepath": "loops/synth/synth01.json"
   }
 ]

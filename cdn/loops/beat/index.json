@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "name": "beat_loop00",
+    "filepath": "loops/beat/beat00.json"
+  },
+  {
+    "name": "beat_loop01",
+    "filepath": "loops/beat/beat01.json"
+  }
+]
