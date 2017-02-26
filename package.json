@@ -20,6 +20,7 @@
   "homepage": "https://github.com/lilannie/HackISU-Spring2017#readme",
   "dependencies": {
     "aphrodite": "0.3.1",
+    "chat-template": "0.0.24",
     "express": "^4.13.4",
     "faker": "3.1.0",
     "firebase": "^3.6.10",
