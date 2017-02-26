@@ -11,6 +11,7 @@ import '../scss/main.scss';
 export default class Main extends React.Component {
     constructor(props) {
         super(props);
+        this.loopCache = {};
         this.state = {
             rootRef: undefined,
             roomId: 0,
@@ -84,8 +85,51 @@ export default class Main extends React.Component {
         }
     }
 
+    addToLoopCache(jsonStr) {
+        var loop = JSON.decode(jsonStr);
+        this.loopCache[loop.name] = loop;
+        console.log("cache " + this.loopCache);
+    }
+
+    fetchLoops() {
+        console.log("in fetch loops");
+        var refs = [
+            firebase.storage().ref().child('loops/synth/index.json'),
+            firebase.storage().ref().child('loops/beat/index.json'),
+            firebase.storage().ref().child('loops/bass/index.json')];
+
+        for (var ref in refs) {
+            console.log("ref is " + refs[ref]);
+            refs[ref].getDownloadURL().then(function(url){
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open( "GET", url, false );
+
+                xmlHttp.send();
+
+                console.log("got index:  " + xmlHttp.responseText);
+                var loopIndexEntries = JSON.parse(xmlHttp.responseText);
+                console.log("JUST GOT!  " + loopIndexEntries);
+                for (var loopIndex in loopIndexEntries) {
+                    console.log("looking for cdn path:  " + loopIndex.filepath);
+
+                    var loopRef = firebase.storage.ref().child(loopIndex.filepath);
+                    loopRef.getDownloadURL().then(function(loopUrl) {
+                        console.log("getting " + loopUrl);
+                        var xmlHttp = new XMLHttpRequest();
+                        mlHttp.open( "GET", loopUrl, false );
+                        xmlHttp.send();
+                        this.addToLoopCache(xmlHttp.responseText);
+                    });
+                }
+
+            });
+        }
+
+    }
+
     componentDidMount() {
         const rootRef = firebase.database().ref();
+        this.fetchLoops();
 
         rootRef.on('value', snap => {
             this.setState({
