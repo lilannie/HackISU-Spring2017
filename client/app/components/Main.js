@@ -24,7 +24,6 @@ export default class Main extends React.Component {
                 number: snap.val()
             });
         });
-
     }
 
     render() {
