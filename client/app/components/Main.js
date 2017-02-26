@@ -86,42 +86,44 @@ export default class Main extends React.Component {
             }
 
         }
+
+        this.addToLoopCache = this.addToLoopCache.bind(this);
+        this.fetchLoops = this.fetchLoops.bind(this);
     }
 
     addToLoopCache(jsonStr) {
-        var loop = JSON.decode(jsonStr);
+        var loop = JSON.parse(jsonStr);
         this.loopCache[loop.name] = loop;
         console.log("cache " + this.loopCache);
     }
 
     fetchLoops() {
-        console.log("in fetch loops");
         var refs = [
             firebase.storage().ref().child('loops/synth/index.json'),
             firebase.storage().ref().child('loops/beat/index.json'),
             firebase.storage().ref().child('loops/bass/index.json')];
 
+        let addToLoopCache = this.addToLoopCache;
+
         for (var ref in refs) {
-            console.log("ref is " + refs[ref]);
             refs[ref].getDownloadURL().then(function(url){
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.open( "GET", url, false );
 
                 xmlHttp.send();
-
-                console.log("got index:  " + xmlHttp.responseText);
+                console.log("fetched inst. index.  got" + xmlHttp.responseText);
                 var loopIndexEntries = JSON.parse(xmlHttp.responseText);
-                console.log("JUST GOT!  " + loopIndexEntries);
                 for (var loopIndex in loopIndexEntries) {
-                    console.log("looking for cdn path:  " + loopIndex.filepath);
+                    var filepath = loopIndexEntries[loopIndex].filepath;
+                    console.log("looking for cdn path:  " + filepath);
 
-                    var loopRef = firebase.storage.ref().child(loopIndex.filepath);
+                    var loopRef = firebase.storage().ref().child(filepath);
                     loopRef.getDownloadURL().then(function(loopUrl) {
-                        console.log("getting " + loopUrl);
                         var xmlHttp = new XMLHttpRequest();
-                        mlHttp.open( "GET", loopUrl, false );
+                        xmlHttp.open( "GET", loopUrl, false );
                         xmlHttp.send();
-                        this.addToLoopCache(xmlHttp.responseText);
+                        console.log("gonna catche this\n" + xmlHttp.responseText);
+                        addToLoopCache(xmlHttp.responseText);
                     });
                 }
 
