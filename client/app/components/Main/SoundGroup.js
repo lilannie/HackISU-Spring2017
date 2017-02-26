@@ -83,17 +83,18 @@ export default class SoundGroup extends React.Component {
         let toggleOff = this.toggleOff;
         return this.props.group.sounds.map(function (id) {
             let sound = sounds[id];
-
-            return (
-                <SoundButton
-                    key={'sound-' + sound.id}
-                    soundId={sound.id}
-                    soundName={sound.name}
-                    file={sound.file}
-                    toggleOn={toggleOn}
-                    toggleOff={toggleOff}
-                />
-            );
+            if (sound != undefined) {
+                return (
+                    <SoundButton
+                        key={'sound-' + sound.id}
+                        soundId={sound.id}
+                        soundName={sound.name}
+                        file={sound.file}
+                        toggleOn={toggleOn}
+                        toggleOff={toggleOff}
+                    />
+                );
+            }
         });
     }
 
@@ -103,7 +104,7 @@ export default class SoundGroup extends React.Component {
         let toggleOff = this.toggleOff;
         return this.props.group.sounds.map(function (item) {
             let sound = sounds[item];
-            if (sound != null && sound != undefined) {
+            if (sound != undefined) {
                 return (
                     <SoundToggle
                         key={'sound-' + sound.id}
@@ -115,17 +116,13 @@ export default class SoundGroup extends React.Component {
                     />
                 );
             }
-            else {
-                return;
-            }
-
         });
     }
 
     render() {
-        var buttons = (this.getToggles());
+        let buttons = this.getToggles();
         if (this.props.type === 'buttons') {
-            buttons = (this.getButtons());
+            buttons = this.getButtons();
         }
         return (
             <div className="sound-group-container row">
