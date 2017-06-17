@@ -75,9 +75,12 @@ export default class MainContent extends React.Component {
                 "name" : "Bass"
             } ]
         }
-
     };
 
+    state = {
+        waitingSounds: [],
+        activeSounds: []
+    }
     constructor(props) {
         super(props);
         this.getSoundGroups = this.getSoundGroups.bind(this);
@@ -85,6 +88,8 @@ export default class MainContent extends React.Component {
 
     getSoundGroups() {
         let sounds = this.props.data.sounds;
+        let waitingSounds= this.state.waitingSounds;
+        let activeSounds = this.state.activeSounds;
 
         return this.props.data['sound-groups'].map(function(group) {
             return (<SoundGroup
@@ -92,8 +97,8 @@ export default class MainContent extends React.Component {
                 key={'sound-group-'+group.id}
                 group={group}
                 sounds={sounds}
-                waitingSounds={this.props.waitingSounds}
-                activeSounds={this.props.activeSounds}
+                waitingSounds={waitingSounds}
+                activeSounds={activeSounds}
             />);
         });
     }

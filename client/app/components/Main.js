@@ -134,17 +134,65 @@ export default class Main extends React.Component {
 
     }
 
-    componentDidMount() {
-        const root = firebase.database().ref();
-        const rootRef = firebase.database().ref();
-        // this.fetchLoops();
+    componentWillMount() {
+        console.log("Component Will Mount");
+        let root = firebase.database().ref();
+        let rooms = firebase.database().ref('rooms');
+        let messages = firebase.database().ref('messages');
+        let phrases = firebase.database().ref('phrases');
+        let songs = firebase.database().ref('songs');
+        let sound_groups = firebase.database().ref('sound_groups');
+        let sounds = firebase.database().ref('sounds');
 
-        root.once('value',
-            snap => {
-                this.setState({
-                    data: snap.val()
-                });
-            });
+        console.log(sounds);
+
+        rooms.on('value', snap => {
+           this.setState({
+               data: {
+                   rooms: snap.val()
+               }
+           })
+        });
+
+        messages.on('value', snap => {
+            this.setState({
+                data: {
+                    messages: snap.val()
+                }
+            })
+        });
+
+        phrases.on('value', snap => {
+            this.setState({
+                data: {
+                    phrases: snap.val()
+                }
+            })
+        });
+
+        songs.on('value', snap => {
+            this.setState({
+                data: {
+                    songs: snap.val()
+                }
+            })
+        });
+
+        sound_groups.on('value', snap => {
+            this.setState({
+                data: {
+                    'sound-group': snap.val()
+                }
+            })
+        });
+
+        sounds.on('value', snap => {
+            this.setState({
+                data: {
+                    sounds: snap.val()
+                }
+            })
+        });
 
         root.on('value', snap => {
             this.setState({
@@ -152,8 +200,12 @@ export default class Main extends React.Component {
             });
         });
 
-        console.log("Initializing Data:");
+        console.log("Initialized Data:");
         console.log(JSON.stringify(this.state.data));
+    }
+
+    componentDidMount() {
+
     }
 
     render() {
